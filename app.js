@@ -63,7 +63,7 @@ function renderBooks(books) {
     const card = document.createElement("article");
     card.className = "book-card";
     const cover = document.createElement("img");
-    const coverUrl = sb.storage.from("book-covers").getPublicUrl(book.id + ".jpg").data.publicUrl;
+    const coverUrl = sb.storage.from("book-covers").getPublicUrl(book.id + ".JPG").data.publicUrl;
     cover.className = "book-cover";
     cover.src = coverUrl;
     cover.alt = book.title + " 도서 표지";
