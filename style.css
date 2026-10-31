@@ -86,6 +86,15 @@ button:hover { background: #174f83; }
   background: #fff;
   box-shadow: 0 5px 15px rgba(20, 50, 75, .05);
 }
+.book-cover {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin: -2px 0 17px;
+  border-radius: 9px;
+  background: #e8eef3;
+  object-fit: cover;
+}
 .book-number { margin: 0 0 16px; color: #56738c; font-size: 13px; font-weight: 700; }
 .book-title { margin: 0; color: #193a59; font-size: 20px; line-height: 1.4; overflow-wrap: anywhere; }
 .book-author { margin: 8px 0; color: #607384; overflow-wrap: anywhere; }

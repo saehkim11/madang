@@ -62,6 +62,13 @@ function renderBooks(books) {
   books.forEach((book) => {
     const card = document.createElement("article");
     card.className = "book-card";
+    const cover = document.createElement("img");
+    const coverUrl = sb.storage.from("book-covers").getPublicUrl(book.id + ".jpg").data.publicUrl;
+    cover.className = "book-cover";
+    cover.src = coverUrl;
+    cover.alt = book.title + " 도서 표지";
+    // 해당 ID의 표지가 없는 경우에도 도서 카드의 나머지 내용은 정상적으로 표시합니다.
+    cover.addEventListener("error", () => { cover.hidden = true; });
     const number = document.createElement("p"); number.className = "book-number"; number.textContent = "도서 번호 " + book.id;
     const title = document.createElement("h2"); title.className = "book-title"; title.textContent = book.title;
     const author = document.createElement("p"); author.className = "book-author"; author.textContent = "저자: " + book.author;
@@ -80,7 +87,7 @@ function renderBooks(books) {
     purchaseButton.type = "button"; purchaseButton.textContent = "모의 구매";
     purchaseButton.addEventListener("click", () => purchaseBook(book, quantityInput, purchaseButton));
     purchaseRow.append(quantityField, purchaseButton);
-    card.append(number, title, author, price, purchaseRow);
+    card.append(cover, number, title, author, price, purchaseRow);
     bookList.append(card);
   });
 }
